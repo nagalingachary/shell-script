@@ -10,7 +10,7 @@ else
     echo "You are the root user"
 fi
 
-VALIDATE (){
+VALIDATE(){
     if [ $1 -ne 0 ]
     then
         echo "Installing $2........ FAILURE"
