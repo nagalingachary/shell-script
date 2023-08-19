@@ -3,7 +3,6 @@
 DATE=$(date +%F-%H:%M:%S)
 SCRIPTNAME=$0
 LOGFILE=/tmp/$SCRIPTNAME-$DATE.log
-USERID=$(id -u)
 
 VALIDATE() {
     if [$1 -ne 0]
@@ -14,6 +13,7 @@ else
     echo "$2 is Success"
 fi
 }
+USERID=$(id -u)
 if [$USERID -ne 0]
 then
     echo "ERROR::please run with root access"
