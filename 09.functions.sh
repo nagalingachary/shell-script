@@ -1,7 +1,11 @@
 #!/bin/bash
+
+DATE=$(date +%F-%H:%M:%S)
+SCRIPTNAME=$0
+LOGFILE=/tmp/$SCRIPTNAME-$DATE.log
 USERID=$(id -u)
 
-VALIDATE(){
+VALIDATE() {
     if [$1 -ne 0]
 then
     echo "$2 is failure"
@@ -17,7 +21,7 @@ else
     echo "you are the root user"
 fi
 
-yum install mysql -y
+yum install mysql -y &>>$LOGFILE
 VALIDATE $? "Installing MYSQL"
-yum install postfix -y
+yum install postfix -y &>>$LOGFILE
 VALIDATE $? "Installing postfix"
