@@ -5,7 +5,7 @@ USERID=$(id -u)
 if [ $USERID -ne 0 ]
 then
     echo "ERROR::please run this script with root access"
-    exit1
+    exit 1
 else
     echo "You are the root user"
 fi
@@ -14,6 +14,7 @@ VALIDATE(){
     if [ $1 -ne 0 ]
     then
         echo "Installing $2........ FAILURE"
+        exit 1
     else
         echo "Installing $2........ SUCCESS"
     fi
